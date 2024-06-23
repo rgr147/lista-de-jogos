@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+}
+
+.separar-botoes {
+    margin-right: 2.5px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+.rodape {
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom:0;
+    width:100%;
+    margin: auto auto;
+    padding: 10px 5px;
+  }
