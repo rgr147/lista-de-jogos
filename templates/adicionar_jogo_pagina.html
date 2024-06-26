@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+        <!--Pagina para inclusão de jogo manualmente.
+        abaixo da linha de inputs e botões, a intenção é lista os nomes
+        dos jogos que estão sendo incluídos. Ao lado de cada um, precisa ter 
+        um botão para remover o jogo que foi incluído caso seja necessário
+        desfazer a inclusão.
+    -->
+        
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul id="messages" class="list-ubstyled">
+                {% for message in messages %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <div class="container" >
+            <div class="row g-3">
+                        <div class="col-sm-4" >
+                            <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Titulo" aria-label="Titulo">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" id="genero" name="genero" class="form-control" placeholder="Genero" aria-label="Genero">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" id="plataforma" name="plataforma" class="form-control" placeholder="Plataforma" aria-label="Plataforma">
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn btn-primary">Adicionar</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="{{ url_for('index') }}" type="button" class="btn btn-primary">Voltar</a>
+                        </div>
+                    </div>
+        </div>
+    </main>
+
+{% endblock conteudo %}
