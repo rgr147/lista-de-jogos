@@ -10,6 +10,7 @@ jogo2 = Jogo('Fallout 4','RPG','Steam')
 jogo3 = Jogo('Cyber Punk 2077','RPG','GOG Galaxy')
 
 lista = [jogo1, jogo2, jogo3]
+titulos_novos = []
 #---
 
 #---
@@ -28,18 +29,18 @@ app.secret_key = 'estudo'
 
 @app.route('/')
 def index():
-    titulo = 'lista de jogos' 
+    titulo_da_pagina = 'lista de jogos' 
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
         return redirect(url_for('login'))
     else:
-        return render_template('index.html', titulo=titulo, lista_de_jogos=lista)
+        return render_template('index.html', titulo_da_pagina=titulo_da_pagina, lista_de_jogos=lista)
 
 @app.route('/adicionar-jogo-pagina')
 def adicionar_jogo_pagina():
-    titulo = 'adicinoar novos titulos'
+    titulo_da_pagina = 'adicinoar novos titulos'
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
         return redirect(url_for('login'))
-    return render_template('adicionar_jogo_pagina.html', titulo=titulo)
+    return render_template('adicionar_jogo_pagina.html', titulo_da_pagina=titulo_da_pagina)
 
 @app.route('/login')
 def login():
@@ -60,6 +61,24 @@ def autenticar():
 def logout():
     session['usuario_logado'] = None
     return redirect(url_for('login'))
+
+@app.route('/incluir-jogos', methods=['POST'])
+def incluir_jogos():
+    
+    titulo_da_pagina = 'Adicionando titulos'
+
+    titulo = request.form['titulo']
+    genero = request.form['genero']
+    plataforma = request.form['plataforma']
+
+    jogo = Jogo(titulo,genero,plataforma)
+    titulos_novos.append(jogo)
+    lista.append(jogo)
+    
+    return render_template('adicionar_jogo_pagina.html',titulo_da_pagina=titulo_da_pagina,adicionados=titulos_novos)
+    # return redirect(url_for('adicionar_jogo_pagina', adicionados=titulos_novos))
+
+
 
 
     # if request.form['nickname'] in usuarios:

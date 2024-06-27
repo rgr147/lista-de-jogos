@@ -25,7 +25,7 @@
              {% endwith %}            
                 <img src=/home/roger/Projects/lista-de-jogos/pictures/joystick.png" class="mb-4" height="57" width="72"/>
                 <h1 class="h3 mb-3 fw-normal text-white">Please Log in</h1>
-                <form method="POST" action="/autenticar">
+                <form method="POST" action="{{ url_for('autenticar') }}">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" name="nickname" required placeholder="Digite seu nickname"/>
                         <label form="floatingInput">Nickname</label>
