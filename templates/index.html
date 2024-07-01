@@ -30,12 +30,6 @@
                                 </tr>
                                 {% endfor %}
                             </tbody>
-                            <tfoot class="table-bordered">
-                                <tr>
-                                    <td>{{ lista_de_jogos|length }} jogos na lista atual.</td>
-                                    
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -43,45 +37,3 @@
         </main>
 
 {% endblock conteudo %}
-
-
-
-        <!--<main>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="d-flex justify-content-end mb-2">
-                            <form action="{{ url_for('adicionar_jogo') }}" method="POST">
-                                <button type="submit" class="btn btn-primary separar-botoes" id="btnAdicionarJogo">Adicionar Jogo</button>
-                            </form>
-                            <button type="button" class="btn btn-primary separar-botoes" id="btnRemoverJogo">Remover Jogo</button>
-                        </div>
-                        <table class="table table-striped table-responsive table-bordered">
-                            <thead class="thead-default">
-                                <tr>
-                                    <th>Titulo</th>
-                                    <th>Genero</th>
-                                    <th>Plataforma</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for jogo in lista_de_jogos %}
-                                <tr>
-                                    <td>{{ jogo.titulo }}</td>
-                                    <td>{{ jogo.genero }}</td>
-                                    <td>{{ jogo.plataforma }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                            <tfoot class="table-bordered">
-                                <tr>
-                                    <td>{{ lista_de_jogos|length }} jogos na lista atual.</td>
-                                    
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </main>
-    -->
