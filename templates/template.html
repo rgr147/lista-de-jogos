@@ -54,12 +54,15 @@
 
 
     {% block conteudo %} {% endblock conteudo %}
-
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script> 
     </body>
     <!--Rodapé contém informações de direitos autorais ou notas de rodapé-->
     <footer class="bg-dark text-white p-3 rodape">
         <div class="container">
-            <p>&copy; 2024 BIBLIOTECA DE GAMES By Roger. Todos os direitos reservados.</p>
+            <p>CC BY Roger BIBLIOTECA DE GAMES 2024. Este site é livre para uso não comercial, como estudo, pesquisa e criação de trabalhos derivados. O uso comercial pode requerer autorização do autor. Entre em contato em rgr_147@hotmail.com para obter mais informações.
+            </p>
+            
         </div>
     </footer>
 </html>
