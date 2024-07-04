@@ -11,28 +11,31 @@
     <main>
         <div class="container" >
             <form method="POST" action="{{ url_for('incluir_jogos') }}" enctype="multipart/form-data">
+                {{ form.csrf_token }}
                 <figure class="img-thumbnail col-md-4">
                     <img class="img-fluid" width="40" src="{{ url_for('imagem',nome_arquivo='capa_padrao.jpg') }}">
                     <figcaption>
                         <label class="fileContainer">
-                            Mudar Capa
+                            Adicionar arquivo JPG para capa
                             <input type="file" name="capa_jogo" accept=".jpg">
                         </label>
                     </figcaption>
                 </figure>
                 <div class="row g-3">
                     <div class="col-sm-4" >
-                        <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Titulo" aria-label="Titulo">
+                        {{ form.titulo(class="form-control", placeholder="Titulo do jogo") }}
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" id="genero" name="genero" class="form-control" placeholder="Genero" aria-label="Genero">
+                        {{ form.genero(class="form-control", placeholder="Genero do jogo") }}
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" id="plataforma" name="plataforma" class="form-control" placeholder="Plataforma" aria-label="Plataforma">
+                        {{ form.plataforma(class="form-control", placeholder="Plataforma que está") }}
                     </div>
-                    <div class="col-sm-2">
-                        <button type="submit" class="btn btn-primary">Adicionar</button>
-                        <button type="" class="btn btn-primary">Salvar</button>
+                    <div class="col-sm-1">
+                        {{ form.adicionar(class="btn btn-primary") }}
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-primary">Salvar</button>
                     </div>
                     <div class="col-sm-2">
                         <a href="{{ url_for('index') }}" type="button" class="btn btn-primary">Voltar</a>

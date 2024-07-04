@@ -11,6 +11,7 @@
     <main>
         <div class="container" >
             <form method="POST" action="{{ url_for('editar_jogo') }}" enctype="multipart/form-data">
+                {{ form.csrf_token }}
                 <figure class="img-thumbnail col-md-4">
                     <img class="img-fluid" width="40" src="{{ url_for('imagem',nome_arquivo=capa_jogo) }}">
                     <figcaption>
