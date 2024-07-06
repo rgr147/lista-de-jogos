@@ -10,39 +10,39 @@
         
     <main>
         <div class="container" >
-            <form method="POST" action="{{ url_for('editar_jogo') }}" enctype="multipart/form-data">
-                {{ form.csrf_token }}
-                <figure class="img-thumbnail col-md-4">
-                    <img class="img-fluid" width="40" src="{{ url_for('imagem',nome_arquivo=capa_jogo) }}">
+            <form class="formularioJogo" method="POST" action="{{ url_for('editar_jogo') }}" enctype="multipart/form-data">
+                
+                <figure class="img-thumbnail col-md-4 formularioImagem">
+                    <img class="img-fluid" src="{{ url_for('imagem',nome_arquivo=capa_jogo) }}">
                     <figcaption>
                         <label class="fileContainer">
-                            Mudar Capa
+                            Alterar Capa
                             <input type="file" name="capa_jogo" accept=".jpg">
                         </label>
                     </figcaption>
                 </figure>
-                <div class="row g-3">
+                <div class="row g-3 mt-1">
                     <input type="hidden" name="id" value="{{ jogo.id }}">
+                    {{ form.csrf_token }}
                     <div class="col-sm-4" >
-                        <input type="text" id="titulo" name="titulo" class="form-control" value="{{ jogo.titulo }}" placeholder="Titulo" aria-label="Titulo">
+                        {{ form.titulo(type="text", id="titulo",class="form-control", value= jogo.title, placeholder="Titulo") }}
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" id="genero" name="genero" class="form-control" value="{{ jogo.genero}}" placeholder="Genero" aria-label="Genero">
+                        {{ form.genero(type="text", id="genero", class="form-control", value=jogo.genre, placeholder="Genero") }}
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" id="plataforma" name="plataforma" class="form-control" value="{{ jogo.plataforma }}" placeholder="Plataforma" aria-label="Plataforma">
+                        {{ form.plataforma(type="text", id="plataforma", class="form-control", value=jogo.platform, placeholder="Plataforma") }}
                     </div>
-                    <div class="col-sm-2">
-                        <button type="submit" class="btn btn-secondary">Salvar alteração</button>
-                    </div>
-                    <div class="col-sm-2">
-                        <a href="{{ url_for('index') }}" type="button" class="btn btn-primary">Cancelar</a>
+                    <div class="col-sm-4">
+                        {{ form.salvar_alteracao(class="btn btn-secondary") }}
+                    
+                        <a href="{{ url_for('index') }}" type="button" class="btn btn-primary">Voltar</a>
                     </div>
                 </div>
             </form>
         </div>
         <div class="container">
-            <p>Titulo a ser editado:</p>
+            <p>Dados do titulo atual:</p>
             <table class="table table-striped table-responsive table-bordered">
                 <thead class="thead-default">
                     <tr>
@@ -53,9 +53,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ jogo.titulo }}</td>
-                        <td>{{ jogo.genero }}</td>
-                        <td>{{ jogo.plataforma }}</td>
+                        <td>{{ jogo.title }}</td>
+                        <td>{{ jogo.genre }}</td>
+                        <td>{{ jogo.platform}}</td>
                     </tr>
                 </tbody>
 

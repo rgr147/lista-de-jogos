@@ -25,9 +25,9 @@
                             <tbody>
                                 {% for jogo in lista_de_jogos %}
                                 <tr>
-                                    <td>{{ jogo.titulo }}</td>
-                                    <td>{{ jogo.genero }}</td>
-                                    <td>{{ jogo.plataforma }}</td>
+                                    <td>{{ jogo.title }}</td>
+                                    <td>{{ jogo.genre }}</td>
+                                    <td>{{ jogo.platform }}</td>
                                     <td>
                                         <a class="btn btn-secondary me-2 btn-sm" id="btnEditarJogo" href="{{ url_for('editar_jogo_pagina', id=jogo.id) }}">Editar</a>
                                         <a class="btn btn-danger btn-sm " id="btnRemoverJogo" href="{{ url_for('remover_jogo', id=jogo.id) }}">Remover Jogo</a>

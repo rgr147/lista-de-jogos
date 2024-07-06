@@ -10,10 +10,10 @@
         
     <main>
         <div class="container" >
-            <form method="POST" action="{{ url_for('incluir_jogos') }}" enctype="multipart/form-data">
+            <form class="formularioJogo" method="POST" action="{{ url_for('incluir_jogos') }}" enctype="multipart/form-data">
                 {{ form.csrf_token }}
-                <figure class="img-thumbnail col-md-4">
-                    <img class="img-fluid" width="40" src="{{ url_for('imagem',nome_arquivo='capa_padrao.jpg') }}">
+                <figure class="img-thumbnail col-md-4 formularioImagem">
+                    <img class="img-fluid" src="{{ url_for('imagem',nome_arquivo='capa_padrao.jpg') }}">
                     <figcaption>
                         <label class="fileContainer">
                             Adicionar arquivo JPG para capa
@@ -31,19 +31,13 @@
                     <div class="col-sm-2">
                         {{ form.plataforma(class="form-control", placeholder="Plataforma que está") }}
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm-3">
                         {{ form.adicionar(class="btn btn-primary") }}
-                    </div>
-                    <div class="col-sm-1">
-                        <button class="btn btn-primary">Salvar</button>
-                    </div>
-                    <div class="col-sm-2">
                         <a href="{{ url_for('index') }}" type="button" class="btn btn-primary">Voltar</a>
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="container">
+
             <p>Jogos adicionados no momento</p>
             <table class="table table-striped table-responsive table-bordered">
                 <thead class="thead-default">
