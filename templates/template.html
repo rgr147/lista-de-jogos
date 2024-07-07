@@ -11,7 +11,7 @@
         <!--<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">-->
     </head>
     <!--Corpo body - Contém todo o conteúdo visível da página-->
-    <body>
+    <body class="container-pessoal">
         <!--mensagem de login bem sucedido-->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -56,8 +56,8 @@
     <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script> 
     </body>
     <!--Rodapé contém informações de direitos autorais ou notas de rodapé-->
-    <footer class="bg-dark text-white p-3 rodape">
-        <div class="container">
+    <footer class="bg-dark text-white p-3 footer-pessoal">
+        <div>
             <p>CC BY Roger BIBLIOTECA DE GAMES 2024. Este site é livre para uso não comercial, como estudo, pesquisa e criação de trabalhos derivados. O uso comercial pode requerer autorização do autor. Entre em contato em rgr_147@hotmail.com para obter mais informações.
             </p>
             
