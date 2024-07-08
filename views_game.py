@@ -1,7 +1,7 @@
 from flask import session, render_template, redirect, url_for, flash, request, send_from_directory
 from main import app, db
 from models import Games
-from helpers import recupera_imagem, deleta_capa_antiga, FormularioJogo
+from helpers import recupera_imagem, deleta_capa_antiga, FormularioJogo, busca_jogos
 import time
 
 @app.route('/')
@@ -123,4 +123,9 @@ def remover_jogo(id):
 def imagem(nome_arquivo):
     return send_from_directory('uploads', nome_arquivo)
 
+@app.route('/seleciona_jogos/<string:plataforma>')
+def seleciona_jogos(plataforma):
+    lista = busca_jogos(plataforma)
+    titulo_da_pagina = f'Biblioteca {plataforma}'
 
+    return render_template('index.html',lista_de_jogos=lista,titulo_da_pagina=titulo_da_pagina)

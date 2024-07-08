@@ -41,26 +41,26 @@
                         <div class="collapse navbar-collapse" id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Todas</a>
+                                    <a class="nav-link" href="{{ url_for('index') }}">Todas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Steam</a>
+                                    <a class="nav-link" href="{{ url_for('seleciona_jogos', plataforma='steam') }}">Steam</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">GOG Galaxy</a>
+                                    <a class="nav-link" href="{{ url_for('seleciona_jogos', plataforma='gog galaxy') }}">GOG Galaxy</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Epic Games</a>
+                                    <a class="nav-link" href="{{ url_for('seleciona_jogos', plataforma='epic games') }}">Epic Games</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Uplay</a>
+                                    <a class="nav-link" href="{{ url_for('seleciona_jogos', plataforma='uplay') }}">Uplay</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Origin EA</a>
+                                    <a class="nav-link" href="{{ url_for('seleciona_jogos', plataforma='ea') }}">Origin EA</a>
                                 </li>
                             </ul>
                             <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control me-2" type="search" placeholder="Titulo do jogo" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
                         </div>

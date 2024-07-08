@@ -1,7 +1,8 @@
 import os
-from main import app
+from main import app,db
 from flask_wtf import FlaskForm
 from wtforms import StringField, validators, SubmitField, PasswordField
+from models import Games
 
 class FormularioJogo(FlaskForm):
     titulo = StringField('Título do Jogo', [validators.DataRequired(), validators.Length(min=3, max=70)])
@@ -27,4 +28,8 @@ def deleta_capa_antiga(id):
     capa_antiga = recupera_imagem(id)
     if capa_antiga != 'capa_padrao.jpg':
         os.remove(os.path.join(app.config['UPLOAD_PATH'],capa_antiga))
-
+    
+def busca_jogos(plataforma):
+    lista_jogos = Games.query.filter_by(platform=plataforma.upper())
+    
+    return lista_jogos
