@@ -1,7 +1,8 @@
 #importando bibilioteca para conexão do python ao mysql-server
 import mysql.connector
 from mysql.connector import errorcode
-from flask_bcrypt import generate_password_hash
+# from flask_bcrypt import generate_password_hash
+
 
 
 print("Conectando ao Mysql Server...")
@@ -19,9 +20,9 @@ except mysql.connector.Error as err:
             print(err)
 #garantindo a criação da banco game_list e selecionando-o
 cursor = conn.cursor()
-cursor.execute("drop database if exists `banco_teste`;")
-cursor.execute("create database `banco_teste`;")
-cursor.execute("use `banco_teste`;")
+cursor.execute("drop database if exists `game_list`;")
+cursor.execute("create database `game_list`;")
+cursor.execute("use `game_list`;")
 
 # criando tabelas no banco
 TABLES = {}
@@ -58,15 +59,15 @@ for nome_tabela in TABLES:
 
 #inserindo usuarios
 usuario_sql = 'insert into users (name, nickname, password) values (%s, %s, %s)'
-usuarios = [('Roger Alves Rodrigues Melo', 'roger', generate_password_hash('123456').decode('utf-8')),
-            ('Aylla Vitória Alves Azevedo', 'aylla', generate_password_hash('123456').decode('utf-8')),
-            ('Denise Azevedo da Silva Rodrigues', 'denise', generate_password_hash('123456').decode('utf-8')),
-            ('Saulo bananeira', 'saulo', generate_password_hash('123456').decode('utf-8'))
+usuarios = [('Roger Alves Rodrigues Melo', 'roger','123456'),
+            ('Aylla Vitória Alves Azevedo', 'aylla', '123456'),
+            ('Denise Azevedo da Silva Rodrigues', 'denise', '123456'),
+            ('Saulo bananeira', 'saulo','123456')
 ]
 cursor.executemany(usuario_sql,usuarios)
 
 #select na tabela usuarios para teste
-cursor.execute('select * from banco_teste.users')
+cursor.execute('select * from game_list.users')
 print('-'*13+' Usuários: '+'-'*13)
 for user in cursor.fetchall():
       print(user[1])
@@ -87,7 +88,7 @@ jogos = [
 cursor.executemany(jogos_sql,jogos)
 
 #select na tabela games para teste
-cursor.execute('select * from banco_teste.games')
+cursor.execute('select * from game_list.games')
 print('-'*13+' Jogos: '+'-'*13)
 for game in cursor.fetchall():
       print(game[1])

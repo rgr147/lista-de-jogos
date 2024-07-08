@@ -122,3 +122,5 @@ def remover_jogo(id):
 @app.route('/uploads/<nome_arquivo>')
 def imagem(nome_arquivo):
     return send_from_directory('uploads', nome_arquivo)
+
+
