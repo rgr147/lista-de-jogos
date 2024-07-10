@@ -11,7 +11,6 @@ db = SQLAlchemy(app)
 csrf = CSRFProtect()
 csrf.init_app(app)
 
-
 from views_game import *
 from views_user import *
 

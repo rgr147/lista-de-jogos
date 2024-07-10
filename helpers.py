@@ -16,6 +16,9 @@ class FormularioSignIn(FlaskForm):
     password = PasswordField('Password',[validators.DataRequired(),validators.Length(min=6,max=100)])    
     sign_in = SubmitField('Sign in')
 
+class SearchForm(FlaskForm):
+    search = StringField('Search', validators=[validators.DataRequired()])
+    submit = SubmitField('Search')
 
 def recupera_imagem(id):
     for nome_arquivo in os.listdir(app.config['UPLOAD_PATH']):
@@ -33,3 +36,4 @@ def busca_jogos(plataforma):
     lista_jogos = Games.query.filter_by(platform=plataforma.upper())
     
     return lista_jogos
+

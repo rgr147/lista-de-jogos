@@ -1,7 +1,7 @@
 from flask import session, render_template, redirect, url_for, flash, request, send_from_directory
 from main import app, db
 from models import Games
-from helpers import recupera_imagem, deleta_capa_antiga, FormularioJogo, busca_jogos
+from helpers import recupera_imagem, deleta_capa_antiga, FormularioJogo, busca_jogos, SearchForm
 import time
 
 @app.route('/')
@@ -11,8 +11,10 @@ def index():
     
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
         return redirect(url_for('login'))
-    else:
-        return render_template('index.html', titulo_da_pagina=titulo_da_pagina, lista_de_jogos=lista)
+    
+    form = SearchForm()
+
+    return render_template('index.html', titulo_da_pagina=titulo_da_pagina, lista_de_jogos=lista,form=form)
 
 @app.route('/adicionar-jogo-pagina')
 def adicionar_jogo_pagina():
@@ -60,8 +62,6 @@ def incluir_jogos():
     form = FormularioJogo()
 
     return render_template('adicionar_jogo_pagina.html',titulo_da_pagina=titulo_da_pagina, form=form)
-    # return redirect(url_for('adicionar_jogo_pagina', adicionados=titulos_novos))
-
 
 @app.route('/editar_jogo_pagina/<int:id>')
 def editar_jogo_pagina(id):
@@ -129,3 +129,22 @@ def seleciona_jogos(plataforma):
     titulo_da_pagina = f'Biblioteca {plataforma}'
 
     return render_template('index.html',lista_de_jogos=lista,titulo_da_pagina=titulo_da_pagina)
+
+@app.route('/search', methods=['POST'])
+def search():
+    titulo_da_pagina = 'titulo_da_pagina'
+
+    try:
+        form = SearchForm(request.form)
+        if not form.validate_on_submit():
+            print(f'Aqui ------> {form.errors}')
+            return redirect(url_for('html'))
+        pesquisa = str(form.search.data).title()
+        jogo = Games.query.filter_by(title=pesquisa).first()
+        resultado = []
+        resultado.append(jogo)
+        form = SearchForm()
+        return render_template('index.html',titulo_da_pagina=titulo_da_pagina,lista_de_jogos=resultado,form=form)
+    except Exception as erro:
+        flash('Não encontrado')
+        return redirect(url_for('index'))

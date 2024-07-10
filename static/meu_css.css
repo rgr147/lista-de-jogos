@@ -9,3 +9,35 @@
     flex-direction: column;
     min-height: 100vh;
 }
+
+body {
+    padding-top: 10px;
+}
+
+figcaption {
+    text-align: center;
+    margin: 3px auto;
+}
+
+td {
+    text-align: center;
+}
+
+.formularioJogo {
+    display: flex;
+}
+
+.formularioImagem {
+    margin-right: 16px
+}
+
+.buttons {
+    margin-top: 16px
+}
+
+.img-pequena {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+}
