@@ -97,7 +97,8 @@ def imagem(nome_arquivo):
 def filtra_plataforma(plataforma):
     lista_plataforma = Games.query.filter_by(platform=plataforma)
     titulo_da_pagina = f'Biblioteca {plataforma}'
-    return render_template('index.html',titulo_da_pagina=titulo_da_pagina,lista_de_jogos=lista_plataforma)
+    form = FormularioPesquisaJogo()
+    return render_template('index.html',titulo_da_pagina=titulo_da_pagina,lista_de_jogos=lista_plataforma,form=form)
 
 @app.route('/pesquisa_jogo',methods=['POST'])
 def pesquisa_jogo():
