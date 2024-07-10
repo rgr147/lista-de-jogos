@@ -11,9 +11,8 @@
     <main>
         <div class="container" >
             <form class="formularioJogo" method="POST" action="{{ url_for('editar_jogo') }}" enctype="multipart/form-data">
-                
-                <figure class="img-thumbnail col-md-4 formularioImagem">
-                    <img class="img-fluid" src="{{ url_for('imagem',nome_arquivo=capa_jogo) }}">
+                <figure class="img-thumbnail col-md-4">
+                    <img class="img-fluid img-pequena" src="{{ url_for('imagem',nome_arquivo=capa_jogo) }}">
                     <figcaption>
                         <label class="fileContainer">
                             Alterar Capa

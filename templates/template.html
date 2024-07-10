@@ -41,28 +41,24 @@
                         <div class="collapse navbar-collapse" id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Todas</a>
+                                    <a class="nav-link" href="{{ url_for('index') }}">Todas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Steam</a>
+                                    <a class="nav-link" href="{{ url_for('filtra_plataforma', plataforma='STEAM') }}">Steam</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">GOG Galaxy</a>
+                                    <a class="nav-link" href="{{ url_for('filtra_plataforma', plataforma='GOG GALAXY') }}">GOG Galaxy</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Epic Games</a>
+                                    <a class="nav-link" href="{{ url_for('filtra_plataforma', plataforma='EPIC GAMES') }}">Epic Games</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Uplay</a>
+                                    <a class="nav-link" href="{{ url_for('filtra_plataforma', plataforma='UPLAY') }}">Uplay</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Origin EA</a>
+                                    <a class="nav-link" href="{{ url_for('filtra_plataforma', plataforma='ORIGIN EA') }}">Origin EA</a>
                                 </li>
                             </ul>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
                         </div>
                     </div>
                 </nav>

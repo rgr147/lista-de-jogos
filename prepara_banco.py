@@ -62,7 +62,8 @@ usuario_sql = 'insert into users (name, nickname, password) values (%s, %s, %s)'
 usuarios = [('Roger Alves Rodrigues Melo', 'roger','123456'),
             ('Aylla Vitória Alves Azevedo', 'aylla', '123456'),
             ('Denise Azevedo da Silva Rodrigues', 'denise', '123456'),
-            ('Saulo bananeira', 'saulo','123456')
+            ('Saulo bananeira', 'saulo','123456'),
+            ('Wellington','tom','123456')
 ]
 cursor.executemany(usuario_sql,usuarios)
 
@@ -82,8 +83,10 @@ jogos = [
       ('Control Ultimate Edition','Aventura','GOG GALAXY'),
       ('Cyberpunk','Aventura','GOG GALAXY'),
       ('3 out of 10 Ep. 1: Welcome To Shovelworks','Aventura','EPIC GAMES'),
-      ('20xx','Aventura','EPIC GAMES'),
-      ('A Plague Tale: Innocence','Aventura','EPIC GAMES')
+      ('20XX','Aventura','EPIC GAMES'),
+      ('A Plague Tale: Innocence','Aventura','EPIC GAMES'),
+      ('Fifa', 'Esposte','ORIGIN EA'),
+      ('Ghost Reacon Break Point','Simulação/Ação','UPLAY')
 ]
 cursor.executemany(jogos_sql,jogos)
 
