@@ -1,6 +1,6 @@
 import os
 
-SECRET_KEY = 'estudo'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 SQLALCHEMY_DATABASE_URI = \
     '{SGBD}://{usuario}:{senha}@{servidor}/{database}'.format(
