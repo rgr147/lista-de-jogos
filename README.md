@@ -8,6 +8,8 @@
 - [Funcionalidades](#funcionalidades)
 - [Instalação](#instalação)
 - [Contribuindo](#contribuindo)
+- [Aprendizados com esse projeto](#aprendizados-com-esse-projeto)
+- [Sobre mim](#sobre-mim)
 
 ## Descrição do projeto
 
