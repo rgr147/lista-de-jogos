@@ -22,10 +22,10 @@ Esse projeto foi desenvolvido para colocar em prática os conhecimentos adquirid
 | - | - | 
 | [Python](https://www.python.org/downloads/) | [Documentação Python](https://www.python.org/doc/) |
 | [Flask](https://flask.palletsprojects.com/en/3.0.x/installation/) | [Documentação Flask](https://flask.palletsprojects.com/en/2.3.x/quickstart/) |
-| [Mysql](https://dev.mysql.com/downloads/mysql/) | [Documentação Mysql](https://dev.mysql.com/doc/) |
+| [MySQL](https://dev.mysql.com/downloads/mysql/) | [Documentação MySQL](https://dev.mysql.com/doc/) |
 | [Bootstrap](https://getbootstrap.com/) | [Documentação Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/) |
 | [Git](https://git-scm.com/downloads) | [Documentação Git](https://git-scm.com/) |
-| [GitHub](https://github.com/) | [GitHub](https://docs.github.com/pt) |
+| [GitHub](https://github.com/) | [Documentação GitHub](https://docs.github.com/pt) |
 
 ## Funcionalidades
 
@@ -62,6 +62,8 @@ pip install -r requirements.txt
 ```
 
 4. Antes de iniciar a aplicação, instale e inicie o banco de dados MySQL, versão 8.4.1 de preferência.
+> [!NOTE]
+> Acesse o site para realizar o [download do MySQL](https://downloads.mysql.com/archives/community/) de acordo com seu sistema operacional 
 
 5. Configure as variáveis de ambiente do banco no arquivo `config.py`. No mesmo arquivo inclua uma palavra(string) na variável `SECRET_KEY`
 
